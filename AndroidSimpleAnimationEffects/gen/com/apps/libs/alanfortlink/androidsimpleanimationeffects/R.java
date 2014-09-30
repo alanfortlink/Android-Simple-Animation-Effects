@@ -11,14 +11,18 @@ public final class R {
     public static final class anim {
         public static int fade_in=0x7f030000;
         public static int fade_out=0x7f030001;
-        public static int slide_bottom_center=0x7f030002;
-        public static int slide_center_bottom=0x7f030003;
-        public static int slide_center_left=0x7f030004;
-        public static int slide_center_right=0x7f030005;
-        public static int slide_center_top=0x7f030006;
-        public static int slide_left_center=0x7f030007;
-        public static int slide_right_center=0x7f030008;
-        public static int slide_top_center=0x7f030009;
+        public static int flip_horizontal_to_center=0x7f030002;
+        public static int flip_horizontal_to_edges=0x7f030003;
+        public static int flip_vertical_to_center=0x7f030004;
+        public static int flip_vertical_to_edges=0x7f030005;
+        public static int slide_bottom_center=0x7f030006;
+        public static int slide_center_bottom=0x7f030007;
+        public static int slide_center_left=0x7f030008;
+        public static int slide_center_right=0x7f030009;
+        public static int slide_center_top=0x7f03000a;
+        public static int slide_left_center=0x7f03000b;
+        public static int slide_right_center=0x7f03000c;
+        public static int slide_top_center=0x7f03000d;
     }
     public static final class attr {
     }

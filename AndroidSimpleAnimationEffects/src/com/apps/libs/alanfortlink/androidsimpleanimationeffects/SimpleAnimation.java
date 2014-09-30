@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 
 public class SimpleAnimation {
 
-	public enum Anim{SLIDE_LEFT_RIGHT, SLIDE_RIGHT_LEFT, SLIDE_TOP_BOTTOM, SLIDE_BOTTOM_TOP, FADE};
+	public enum Anim{SLIDE_LEFT_RIGHT, SLIDE_RIGHT_LEFT, SLIDE_TOP_BOTTOM, SLIDE_BOTTOM_TOP, FADE, FLIP_HORIZONTAL, FLIP_VERTICAL};
 	
 	public static void animate(Context context, final ViewGroup container, final View actualView, final View newView, Anim animType, final AnimationAction action){
 		Animation[] anims = getAnimations(context, animType);
@@ -83,6 +83,18 @@ public class SimpleAnimation {
 		case FADE:
 			idIn = R.anim.fade_in;
 			idOut = R.anim.fade_out;
+			
+			break;
+			
+		case FLIP_HORIZONTAL:
+			idIn = R.anim.flip_horizontal_to_edges;
+			idOut = R.anim.flip_horizontal_to_center;
+			
+			break;
+			
+		case FLIP_VERTICAL:
+			idIn = R.anim.flip_vertical_to_edges;
+			idOut = R.anim.flip_vertical_to_center;
 			
 			break;
 
