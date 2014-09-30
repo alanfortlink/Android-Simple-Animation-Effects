@@ -1,6 +1,7 @@
 package com.apps.libs.alanfortlink.androidsimpleanimationeffects;
 
 import android.content.Context;
+import android.graphics.Interpolator;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -8,7 +9,7 @@ import android.view.animation.AnimationUtils;
 
 public class SimpleAnimation {
 
-	enum Anim{SLIDE_LEFT_RIGHT, SLIDE_RIGHT_LEFT, SLIDE_TOP_BOTTOM, SLIDE_BOTTOM_TOP};
+	public enum Anim{SLIDE_LEFT_RIGHT, SLIDE_RIGHT_LEFT, SLIDE_TOP_BOTTOM, SLIDE_BOTTOM_TOP, FADE};
 	
 	public static void animate(Context context, final ViewGroup container, final View actualView, final View newView, Anim animType, final AnimationAction action){
 		Animation[] anims = getAnimations(context, animType);
@@ -77,6 +78,12 @@ public class SimpleAnimation {
 			idIn = R.anim.slide_bottom_center;
 			idOut = R.anim.slide_center_top;
 
+			break;
+			
+		case FADE:
+			idIn = R.anim.fade_in;
+			idOut = R.anim.fade_out;
+			
 			break;
 
 		default:
