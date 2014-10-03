@@ -9,6 +9,8 @@ import android.view.animation.AnimationUtils;
 
 public class SimpleAnimation {
 	
+	public static int hp = 0;
+	
 	public static final int DEFAULT_ANIM_DURATION = 500;
 	public static final int FAST_ANIM_DURATION = 250;
 	public static final int SLOW_ANIM_DURATION = 1000;
@@ -170,6 +172,30 @@ public class SimpleAnimation {
 		animateView(context, view, animType, action, DEFAULT_ANIM_DURATION, keepChanges);
 	}
 	
+	public static void animateViews(Context context, final Anim animType, final AnimationActionListener action, boolean keepChanges, boolean linked, final View... views){
+		animateViews(context, animType, action, keepChanges, linked, DEFAULT_ANIM_DURATION, views);
+	}
+	
+	public static void animateViews(Context context, final Anim animType, final AnimationActionListener action, boolean keepChanges, boolean linked, int duration, final View... views){
+		
+		if(linked){
+			
+			for(int i = 0; i<views.length; i++){
+				Animation animation = AnimationFactory.getAnimations(context, animType, duration)[0];
+				animation.setAnimationListener(new com.apps.libs.alanfortlink.androidsimpleanimationeffects.Animation(action));
+				animation.setFillAfter(keepChanges);
+				
+				if(linked)
+					animation.setStartOffset(animation.getDuration()*(i));
+				else animation.setStartOffset(0);
+				
+				views[i].startAnimation(animation);
+			}
+			
+		}
+		
+	}
+	
 	public interface AnimationActionListener{
 		public void run();
 	}
@@ -179,6 +205,5 @@ public class SimpleAnimation {
 		public void onAnimationEnd();
 		public void onAnimationMiddle();
 	}
-	
 	
 }
