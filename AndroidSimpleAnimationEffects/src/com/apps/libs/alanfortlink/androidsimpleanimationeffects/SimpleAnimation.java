@@ -160,7 +160,7 @@ public class SimpleAnimation {
 	public static void animateView(Context context, final View view, final Anim animType,  final AnimationActionListener action, int duration, boolean keepChanges){
 		Animation[] anims = AnimationFactory.getAnimations(context, animType, duration);
 
-		final Animation anim = anims[1];
+		final Animation anim = anims[0];
 		anim.setFillAfter(keepChanges);
 		
 		anim.setAnimationListener(new com.apps.libs.alanfortlink.androidsimpleanimationeffects.Animation(action));
@@ -184,14 +184,18 @@ public class SimpleAnimation {
 				Animation animation = AnimationFactory.getAnimations(context, animType, duration)[0];
 				animation.setAnimationListener(new com.apps.libs.alanfortlink.androidsimpleanimationeffects.Animation(action));
 				animation.setFillAfter(keepChanges);
-				
-				if(linked)
-					animation.setStartOffset(animation.getDuration()*(i));
-				else animation.setStartOffset(0);
+				animation.setStartOffset(animation.getDuration()*(i));
 				
 				views[i].startAnimation(animation);
 			}
 			
+		}else{
+			Animation anim = AnimationFactory.getAnimations(context, animType, duration)[0];
+			anim.setFillAfter(keepChanges);
+			anim.setAnimationListener(new com.apps.libs.alanfortlink.androidsimpleanimationeffects.Animation(action));
+			for(View view : views){
+				view.startAnimation(anim);
+			}
 		}
 		
 	}
