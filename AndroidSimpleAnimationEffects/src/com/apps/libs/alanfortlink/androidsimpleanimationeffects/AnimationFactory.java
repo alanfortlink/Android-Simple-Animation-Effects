@@ -3,8 +3,8 @@ package com.apps.libs.alanfortlink.androidsimpleanimationeffects;
 import android.content.Context;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-
 import com.apps.libs.alanfortlink.androidsimpleanimationeffects.SimpleAnimation.Anim;
+import com.apps.libs.alanfortlink.androidsimpleanimationeffects.R;
 
 public class AnimationFactory {
 	
@@ -68,8 +68,8 @@ public class AnimationFactory {
 			break;
 			
 		case SCALE_FULL:
-			idIn = R.anim.scale_in;
-			idOut = R.anim.scale_out;
+			idIn = R.anim.scale_in_full;
+			idOut = R.anim.scale_out_full;
 
 			break;
 

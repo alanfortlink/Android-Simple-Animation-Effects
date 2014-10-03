@@ -1,6 +1,7 @@
 package com.apps.libs.alanfortlink.androidsimpleanimationeffects;
 
 import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -95,6 +96,8 @@ public class SimpleAnimation {
 
 		final Animation animOut = anims[1];
 		
+		final Handler mHandler = new Handler();
+		
 		animOut.setAnimationListener(new Animation.AnimationListener() {
 			
 			@Override
@@ -119,11 +122,17 @@ public class SimpleAnimation {
 					((MultiAnimationActionListener) action).onAnimationEnd();
 				}
 				
-				try {
-					parent.removeView(view);
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
+				
+				mHandler.post(new Runnable() {
+					
+					@Override
+					public void run() {
+					
+						if(parent != null && view != null)
+							parent.removeView(view);
+						
+					}
+				});
 			}
 		});
 		
@@ -170,4 +179,6 @@ public class SimpleAnimation {
 		public void onAnimationEnd();
 		public void onAnimationMiddle();
 	}
+	
+	
 }

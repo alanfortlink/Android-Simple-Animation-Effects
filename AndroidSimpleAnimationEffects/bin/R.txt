@@ -4,10 +4,10 @@ int anim flip_horizontal_to_center 0x7f030002
 int anim flip_horizontal_to_edges 0x7f030003
 int anim flip_vertical_to_center 0x7f030004
 int anim flip_vertical_to_edges 0x7f030005
-int anim scale_in 0x7f030006
+int anim scale_in_full 0x7f030006
 int anim scale_in_horizontal 0x7f030007
 int anim scale_in_vertical 0x7f030008
-int anim scale_out 0x7f030009
+int anim scale_out_full 0x7f030009
 int anim scale_out_horizontal 0x7f03000a
 int anim scale_out_vertical 0x7f03000b
 int anim slide_bottom_center 0x7f03000c
